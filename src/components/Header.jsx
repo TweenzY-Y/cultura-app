@@ -9,9 +9,9 @@ export default function Header({ toggleMenu, navElements }) {
           <span>Cultura.app</span>
         </a>
         <ul className="nav-links">
-          {navElements.map((el) => (
+          {navElements.map((el, i) => (
             <li>
-              <a href={el.href} onClick={toggleMenu}>
+              <a href={el.href} key={i} onClick={toggleMenu}>
                 {el.name}
               </a>
             </li>

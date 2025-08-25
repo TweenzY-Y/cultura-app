@@ -9,8 +9,8 @@ export default function MobileMenu({ isOpen, toggleMenu, navElements }) {
         </div>
       </div>
       <div className="mobile-nav-links">
-        {navElements.map((el) => (
-          <a href={el.href} onClick={toggleMenu}>
+        {navElements.map((el, i) => (
+          <a href={el.href} key={i} onClick={toggleMenu}>
             {el.name}
           </a>
         ))}
