@@ -1,6 +1,7 @@
 import PageLayout from "./components/PageLayout";
 import Header from "./components/Header";
 import MobileMenu from "./components/MobileMenu";
+import Hero from "./components/Hero";
 import { useState } from "react";
 
 export default function App() {
@@ -19,6 +20,7 @@ export default function App() {
     <PageLayout>
       <Header toggleMenu={toggleMenu} isMenuOpen={isMenuOpen} navElements={navElements}></Header>
       <MobileMenu isOpen={isMenuOpen} toggleMenu={toggleMenu} navElements={navElements} />
+      <Hero></Hero>
     </PageLayout>
   );
 }

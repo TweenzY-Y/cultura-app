@@ -7,6 +7,7 @@
 
 :root {
   --primary: #8a2be2;
+  --second-gradient: #ad6beb;
   --secondary: #00b4d8;
   --dark: #121212;
   --darker: #0a0a0a;
@@ -103,7 +104,7 @@ body {
 }
 
 .btn-signup {
-  background: linear-gradient(90deg, var(--primary), #ad6beb);
+  background: linear-gradient(90deg, var(--primary), var(--second-gradient));
   color: var(--light);
 }
 
@@ -169,6 +170,190 @@ body {
   padding-bottom: 2rem;
 }
 
+/* HERO */
+
+.hero {
+  padding: 8rem 5% 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+  position: relative;
+}
+
+.hero-content {
+  max-width: 900px;
+  z-index: 20;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  color: var(--gray);
+  margin-bottom: 2.5rem;
+  line-height: 1.6;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 3rem;
+}
+
+.btn-primary {
+  background: linear-gradient(90deg, var(--primary), var(--second-gradient));
+  color: var(--light);
+  padding: 0.8rem 2rem;
+  font-size: 1.1rem;
+}
+
+.btn-secondary {
+  background: var(--glass);
+  color: var(--light);
+  border: 1px solid var(--glass-border);
+  padding: 0.8rem 2rem;
+  font-size: 1.1rem;
+}
+
+.btn-primary:hover,
+.btn-secondary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.media-cards {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.media-card {
+  background: var(--glass);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  padding: 1.5rem;
+  width: 160px;
+  transition: all 0.3s ease;
+}
+.media-card.games::before {
+  background: url("https://i.pinimg.com/736x/7c/6b/67/7c6b67fddbef9c4127efc3bd409cd425.jpg");
+  background-position: 50%;
+  background-size: cover;
+}
+.media-card.movies::before {
+  background: url("https://images2.alphacoders.com/450/450291.jpg");
+  background-position: 50%;
+  background-size: cover;
+}
+.media-card.series::before {
+  background: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/9cab70b5-3e40-4e4d-8379-da92c7d5b1eb/d6evql1-15830b08-9b89-43ad-8302-7ce407483ffe.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzljYWI3MGI1LTNlNDAtNGU0ZC04Mzc5LWRhOTJjN2Q1YjFlYlwvZDZldnFsMS0xNTgzMGIwOC05Yjg5LTQzYWQtODMwMi03Y2U0MDc0ODNmZmUuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.0mOQaO8hUsakov_49jfVc9HaKlwhAWfgv7tkPv6DBhU");
+  background-position: 50%;
+  background-size: cover;
+}
+.media-card.music::before {
+  background: url("https://upload.wikimedia.org/wikipedia/en/5/55/Michael_Jackson_-_Thriller.png");
+  background-position: 50%;
+  background-size: cover;
+}
+.media-card::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border-radius: 16px;
+  opacity: 0.1;
+  background-repeat: no-repeat;
+  z-index: -1;
+}
+
+.media-card:hover {
+  transform: translateY(-5px);
+  background: var(--glass-hover);
+  cursor: pointer;
+}
+.media-card:hover::before {
+  transition: opacity 0.3s ease-in-out;
+  opacity: 0.2;
+}
+
+.media-icon {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.movies-icon {
+  color: #ff6b6b;
+}
+.series-icon {
+  color: #4ecdc4;
+}
+.games-icon {
+  color: #ffe66d;
+}
+.music-icon {
+  color: #a363d9;
+}
+
+.media-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.media-card p {
+  font-size: 0.9rem;
+  color: var(--gray);
+  margin: 0;
+}
+
+/* BACKGROUND GRADIENTS */
+.gradient-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.gradient-circle {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(50px);
+  opacity: 0.2;
+}
+
+.circle-1 {
+  background: var(--primary);
+  width: 300px;
+  height: 300px;
+  top: -100px;
+  left: -100px;
+}
+
+.circle-2 {
+  background: var(--secondary);
+  width: 400px;
+  height: 400px;
+  bottom: -150px;
+  right: -100px;
+}
+
 @media (max-width: 900px) {
   .nav-links,
   .auth-buttons {
@@ -177,5 +362,33 @@ body {
 
   .menu-toggle {
     display: block;
+  }
+  .hero h1 {
+    font-size: 2.8rem;
+  }
+
+  .hero p {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .media-cards {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .media-card {
+    width: 100%;
+    max-width: 300px;
   }
 }

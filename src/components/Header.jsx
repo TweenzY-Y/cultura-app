@@ -10,8 +10,8 @@ export default function Header({ toggleMenu, navElements }) {
         </a>
         <ul className="nav-links">
           {navElements.map((el, i) => (
-            <li>
-              <a href={el.href} key={i} onClick={toggleMenu}>
+            <li key={i}>
+              <a href={el.href} onClick={toggleMenu}>
                 {el.name}
               </a>
             </li>
