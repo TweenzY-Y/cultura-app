@@ -2,13 +2,25 @@ import PageLayout from "./components/PageLayout";
 import Header from "./components/Header";
 import MobileMenu from "./components/MobileMenu";
 import Hero from "./components/Hero";
+import AuthModal from "./components/AuthModal";
 import { useState } from "react";
 
 export default function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modalTab, setModalTab] = useState("login");
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  const openModal = (tab) => {
+    setModalTab(tab);
+    setModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
   };
 
   const navElements = [
@@ -18,9 +30,10 @@ export default function App() {
   ];
   return (
     <PageLayout>
-      <Header toggleMenu={toggleMenu} isMenuOpen={isMenuOpen} navElements={navElements}></Header>
-      <MobileMenu isOpen={isMenuOpen} toggleMenu={toggleMenu} navElements={navElements} />
-      <Hero></Hero>
+      <Header toggleMenu={toggleMenu} navElements={navElements} openModal={openModal} />
+      <MobileMenu isOpen={isMenuOpen} toggleMenu={toggleMenu} navElements={navElements} openModal={openModal} />
+      <Hero />
+      <AuthModal isOpen={modalOpen} modalTab={modalTab} openModal={openModal} closeModal={closeModal} />
     </PageLayout>
   );
 }

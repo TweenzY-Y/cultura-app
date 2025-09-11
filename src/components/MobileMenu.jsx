@@ -1,6 +1,6 @@
 import { RiCloseLine } from "react-icons/ri";
 
-export default function MobileMenu({ isOpen, toggleMenu, navElements }) {
+export default function MobileMenu({ isOpen, toggleMenu, navElements, openModal }) {
   return (
     <div className={`mobile-menu ${isOpen ? "active" : ""}`}>
       <div className="mobile-menu-header">
@@ -16,8 +16,12 @@ export default function MobileMenu({ isOpen, toggleMenu, navElements }) {
         ))}
       </div>
       <div className="mobile-auth-buttons">
-        <button className="btn btn-login">Log In</button>
-        <button className="btn btn-signup">Sign Up</button>
+        <button className="btn btn-login" onClick={() => openModal("login")}>
+          Log In
+        </button>
+        <button className="btn btn-signup" onClick={() => openModal("register")}>
+          Sign Up
+        </button>
       </div>
     </div>
   );
