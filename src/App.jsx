@@ -8,19 +8,9 @@ import { useState } from "react";
 export default function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
-  const [modalTab, setModalTab] = useState("login");
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
-  };
-
-  const openModal = (tab) => {
-    setModalTab(tab);
-    setModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setModalOpen(false);
   };
 
   const navElements = [
@@ -28,12 +18,13 @@ export default function App() {
     { name: "Community", href: "/community" },
     { name: "Contact", href: "/contact" },
   ];
+
   return (
     <PageLayout>
-      <Header toggleMenu={toggleMenu} navElements={navElements} openModal={openModal} />
-      <MobileMenu isOpen={isMenuOpen} toggleMenu={toggleMenu} navElements={navElements} openModal={openModal} />
+      <Header toggleMenu={toggleMenu} navElements={navElements} setModalOpen={setModalOpen} />
+      <MobileMenu isOpen={isMenuOpen} toggleMenu={toggleMenu} navElements={navElements} setModalOpen={setModalOpen} />
       <Hero />
-      <AuthModal isOpen={modalOpen} modalTab={modalTab} openModal={openModal} closeModal={closeModal} />
+      <AuthModal isOpen={modalOpen} setModalOpen={setModalOpen} />
     </PageLayout>
   );
 }

@@ -1,6 +1,6 @@
 import { RiBookOpenLine, RiMenuLine } from "react-icons/ri";
 
-export default function Header({ toggleMenu, navElements, openModal }) {
+export default function Header({ toggleMenu, navElements, setModalOpen }) {
   return (
     <header>
       <nav className="navbar">
@@ -18,11 +18,8 @@ export default function Header({ toggleMenu, navElements, openModal }) {
           ))}
         </ul>
         <div className="auth-buttons">
-          <button className="btn btn-login" onClick={() => openModal("login")}>
-            Log In
-          </button>
-          <button className="btn btn-signup" onClick={() => openModal("register")}>
-            Sign Up
+          <button className="btn btn-join" onClick={() => setModalOpen(true)}>
+            Join cultura / Login
           </button>
         </div>
         <div className="menu-toggle" onClick={toggleMenu}>
